@@ -9,8 +9,18 @@ import { Link } from "react-router-dom";
 function SearchComponent() {
   const [searchValue, setSearchValue] = useState("");
 
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
   const searchHandler = (e) => {
     setSearchValue(e.target.value);
+  };
+
+  const inputFocusHandler = (e) => {
+    setIsPopupOpen(true);
+  };
+
+  const inputBlurHandler = (e) => {
+    setIsPopupOpen(false);
   };
 
   return (
@@ -20,6 +30,8 @@ function SearchComponent() {
           placeholder="Search..."
           onChange={searchHandler}
           value={searchValue}
+          onFocus={inputFocusHandler}
+          onBlur={inputBlurHandler}
         />
         <Link to="/search-results/asd">
           <Button
@@ -30,8 +42,7 @@ function SearchComponent() {
           />
         </Link>
       </div>
-      {searchValue.length > 0 && <SearchPopup />}
-      {/* <SearchPopup /> */}
+      {isPopupOpen ? searchValue.length > 0 ? <SearchPopup /> : null : null}
     </div>
   );
 }

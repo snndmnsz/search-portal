@@ -7,16 +7,22 @@ const DUMMY_DATA = [
     id: 1,
     address: "18th Street Brewery",
     place: "Oakley Avenue, Hammond, IN",
+    person: "John Doe",
+    date: "12/12/2020",
   },
   {
     id: 2,
     address: "18th Street Brewery",
     place: "Oakley Avenue, Hammond, IN",
+    person: "John Doe",
+    date: "12/12/2020",
   },
   {
     id: 3,
     address: "18th Street Brewery",
     place: "Oakley Avenue, Hammond, IN",
+    person: "John Doe",
+    date: "12/12/2020",
   },
 ];
 

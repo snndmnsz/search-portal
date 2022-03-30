@@ -20,6 +20,7 @@ function App() {
 
   return (
     <>
+      {/* <div className="owner">Coded by snndmnsz</div> */}
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />

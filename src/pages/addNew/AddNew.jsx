@@ -1,10 +1,13 @@
 import React from "react";
+import { useState } from "react";
 import styles from "./AddNew.module.scss";
 import Input from "../../components/ui/input/Input";
 import Button from "../../components/ui/button/Button";
+import Toast from "../../components/ui/toast/Toast";
 function AddNew() {
+  const [isVisible, setIsVisible] = useState(true);
+
   const onChangeHandler = (e) => {
-    console.log(e.target.value);
   };
 
   const forSubmitHandler = (e) => {
@@ -12,8 +15,19 @@ function AddNew() {
     console.log("submit");
   };
 
+  const toastStateHandler = () => {
+    setIsVisible(false);
+  };
+
   return (
     <div className={styles.formContainer}>
+      <Toast
+        message="Name and surname should contain at least 2 words"
+        header="Error while adding link element"
+        onClose={toastStateHandler}
+        type="Error"
+        isVisible={isVisible}
+      />
       <form onSubmit={forSubmitHandler} className={styles.form}>
         <Input
           label="Name Surname"

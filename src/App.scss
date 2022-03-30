@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Roboto:wght@300;400;500;700;900&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -13,3 +14,12 @@ body {
   scroll-behavior: smooth;
 }
 
+.owner {
+  font-size: 14px;
+  color: #8282827a;
+  position: fixed;
+  width: 100%;
+  bottom: 8px;
+  left: 50%;
+  right: 50%;
+}
