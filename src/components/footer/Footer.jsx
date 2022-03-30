@@ -6,10 +6,7 @@ import styles from "./Footer.module.scss";
 function Footer() {
   const location = useLocation();
 
-  if (
-    location.pathname === "/search-results" ||
-    location.pathname === "/new-search-record"
-  ) {
+  if (location.pathname !== "/") {
     return null;
   }
 

@@ -4,6 +4,8 @@ import Button from "../../ui/button/Button";
 import SearchInput from "../../ui/searchInput/SearchInput";
 import styles from "./Search.module.scss";
 import SearchPopup from "../searchPopup/SearchPopup";
+import { Link } from "react-router-dom";
+
 function SearchComponent() {
   const [searchValue, setSearchValue] = useState("");
 
@@ -19,12 +21,14 @@ function SearchComponent() {
           onChange={searchHandler}
           value={searchValue}
         />
-        <Button
-          title="Search"
-          style={{
-            height: "50px",
-          }}
-        />
+        <Link to="/search-results/asd">
+          <Button
+            title="Search"
+            style={{
+              height: "50px",
+            }}
+          />
+        </Link>
       </div>
       {searchValue.length > 0 && <SearchPopup />}
       {/* <SearchPopup /> */}

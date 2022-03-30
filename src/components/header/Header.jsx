@@ -6,6 +6,8 @@ import Input from "../ui/input/Input";
 import logo from "../../assets/images/logo.png";
 import SearchComponent from "../search/search/SearchComponent";
 import { Link } from "react-router-dom";
+import Back from "../../assets/icons/Back";
+
 function Header() {
   const location = useLocation();
 
@@ -29,8 +31,19 @@ function Header() {
       {location.pathname === "/new-search-record" ? (
         <div></div>
       ) : (
-        <Button title="Add new record" onClick={() => console.log("cliked")} />
+        <Link to="/new-search-record">
+          <Button
+            title="Add new record"
+            onClick={() => console.log("cliked")}
+          />
+        </Link>
       )}
+      {location.pathname === "/new-search-record" ? (
+        <Link to="/" className={styles.back}>
+          <Back />
+          <p>Return to List Page</p>
+        </Link>
+      ) : null}
     </header>
   );
 }
