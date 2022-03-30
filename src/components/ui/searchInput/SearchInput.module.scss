@@ -1,0 +1,41 @@
+@import "../../../Global.scss";
+
+.inputContainer {
+  display: flex;
+  flex-direction: row;
+  height: 46px;
+  width: 100%;
+  margin: 10px 8px;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  background-color: var(--color-primary);
+  border: 2px solid var(--input-border);
+  border-radius: 8px;
+  padding: 0 10px;
+
+  & svg {
+    width: 22px;
+    height: 22px;
+  }
+  .input {
+    width: 70%;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    color: var(--input-color);
+    font-size: var(--search-font-size);
+    transition: all 0.2s ease-in-out;
+    outline: none;
+    &::placeholder {
+      color: var(--label-Placeholder);
+    }
+  }
+  &:hover {
+    border: 2px solid var(--search-input-border);
+  }
+
+  &:focus-within {
+    border: 2px solid var(--search-input-border);
+  }
+}

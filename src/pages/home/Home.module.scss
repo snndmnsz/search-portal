@@ -1,0 +1,41 @@
+.container {
+  width: 80%;
+  padding-top: 20px;
+  margin: 0 auto;
+
+  .logo {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 20px 15px 20px;
+
+    img {
+      height: 115px;
+    }
+
+    .title {
+      margin-left: 200px;
+      margin-top: 10px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  }
+  .search {
+    max-width: 800px;
+    margin: 0 auto;
+    .title {
+      margin-bottom: 5px;
+      font-size: 32px;
+      font-weight: bold;
+    }
+  }
+
+  .topNews {
+    width: 100%;
+    padding-top: 270px;
+    padding-bottom: 120px;
+    margin: 0 auto;
+  }
+}

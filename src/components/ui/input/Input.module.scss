@@ -1,0 +1,48 @@
+@import "../../../Global.scss";
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  height: 48px;
+  margin: 10px 8px;
+  gap: 5px;
+  font-size: var(--button-font-size);
+
+  .label {
+    font-size: var(--button-font-size);
+    color: var(--label-color);
+  }
+  .input {
+    width: 90%;
+    height: 40px;
+    border: 2px solid var(--input-border);
+    border-radius: 8px;
+    padding: 0 10px;
+    background-color: var(--color-primary);
+    color: var(--input-color);
+    font-size: var(--button-font-size);
+    transition: all 0.2s ease-in-out;
+    outline: none;
+    &::placeholder {
+      color: var(--label-Placeholder);
+    }
+    &:hover,
+    &:focus {
+      background: var(--input-hoverbg);
+      border: 2px solid var(--input-hoverborder);
+    }
+  }
+  .error {
+    border: 2px solid var(--input-errorBorder);
+    &::placeholder {
+      color: var(--input-errorPlaceholder);
+    }
+  }
+  .errorText {
+    font-weight: 700;
+    color: var(--input-errorLabel);
+  }
+}

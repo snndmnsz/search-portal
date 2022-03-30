@@ -1,0 +1,23 @@
+:root {
+  --color-primary: #ffffff;
+  --button-text: #ffffff;
+  --button-color: #204080;
+  --button-hover: #4f75c2;
+
+  --label-color: #686868;
+  --label-Placeholder: rgba(100, 100, 100, 0.5);
+  --input-border: #484848;
+  --input-bgcolor: #ffffff;
+  --input-color: #000000;
+  --input-hoverbg: rgba(100, 100, 100, 0.08);
+  --input-hoverborder: rgba(72, 72, 72, 0.6);
+
+  --input-errorLabel: rgba(255, 0, 0, 0.7);
+  --input-errorBorder: #ff0000;
+  --input-errorPlaceholder: rgba(255, 0, 0, 0.5);
+
+  --search-input-border: #204080;
+
+  --button-font-size: 15px;
+  --search-font-size: 16px;
+}
