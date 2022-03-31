@@ -43,6 +43,20 @@ const DUMMY_DATA = [
     author: "Troy Corlson",
     image: image,
   },
+  {
+    id: 6,
+    title: "A Plan to Rebuild the Bus Terminal Everyone Loves to Hate",
+    time: "1h ago",
+    author: "Troy Corlson",
+    image: image,
+  },
+  {
+    id: 7,
+    title: "A Plan to Rebuild the Bus Terminal Everyone Loves to Hate",
+    time: "1h ago",
+    author: "Troy Corlson",
+    image: image,
+  },
 ];
 
 function Slider() {
@@ -69,10 +83,11 @@ function Slider() {
         forwardBtnProps={{
           children: ">",
           style: {
-            fontSize: "18px",
-            padding: "15px",
-            width: "40px !important",
-            height: "40px !important",
+            fontSize: "23px",
+            marginLeft: "10px",
+            padding: "10px",
+            minWidth: 47,
+            minHeight: 40,
             borderRadius: "50%",
             border: "none",
             alignSelf: "center",
@@ -85,10 +100,11 @@ function Slider() {
         backwardBtnProps={{
           children: "<",
           style: {
-            fontSize: "18px",
-            padding: "15px",
-            width: "40px !important",
-            height: "40px !important",
+            fontSize: "23px",
+            marginRight: "10px",
+            padding: "10px",
+            minWidth: 47,
+            minHeight: 40,
             borderRadius: "50%",
             border: "none",
             alignSelf: "center",
@@ -98,7 +114,7 @@ function Slider() {
             alignItems: "center",
           },
         }}
-        itemsToShow={3}
+        itemsToShow={4}
         speed={300}
       >
         {DUMMY_DATA.map((item) => (
