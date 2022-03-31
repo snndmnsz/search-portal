@@ -87,7 +87,10 @@ function SearchResults() {
       <div className={styles.tableContainer}>
         <div className={styles.tableItems}>
           {data.map((item) => (
-            <SearchItem key={item.id} {...item} showPersonInfo={true} />
+            <>
+              <SearchItem key={item.id} {...item} showPersonInfo={true} />
+              <hr />
+            </>
           ))}
         </div>
         <div className={styles.tablePagination}>

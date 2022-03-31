@@ -26,6 +26,12 @@
       align-items: center;
       gap: 10px;
       transform: scale(1.03);
+
+      & hr {
+        color: #7e7e7ea5;
+        width: 100%;
+        opacity: 0.2;
+      }
     }
     .tablePagination {
       display: flex;

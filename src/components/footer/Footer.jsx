@@ -29,7 +29,18 @@ function Footer() {
         </div>
       </div>
       <div className={styles.map}>
-        <img src={footer} alt="footer" />
+        <div className={styles.googleMap}>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24096.490178980624!2d29.064760409656248!3d40.980139125415384!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac7b749c9ecdf%3A0x41ebb6401d7dbb82!2zS2FkxLFrw7Z5LCBTYWhyYXnEsSBDZWRpdCwgMzQ3MzQgS2FkxLFrw7Z5L8Swc3RhbmJ1bA!5e0!3m2!1str!2str!4v1648754009089!5m2!1str!2str"
+            width="600"
+            height="450"
+            frameborder="0"
+            style={{ border: 0, width: "100%", height: "100%" }}
+            allowfullscreen=""
+            aria-hidden="false"
+            tabindex="0"
+          ></iframe>
+        </div>
       </div>
     </footer>
   );
