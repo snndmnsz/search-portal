@@ -23,9 +23,12 @@
     padding: 8px 0px;
     margin: 0 auto;
   }
-  .showMore {
-    color: black;
+
+  .showMoreButton {
+    border: none;
     text-decoration: none;
+    background-color: transparent;
+    color: black;
     align-self: center;
     justify-self: flex-end;
     height: 15%;
@@ -33,8 +36,9 @@
     margin-bottom: 15px;
     font-weight: bold;
     font-size: 15px;
-  }
-  .showMore:hover {
-    color: #00a8ff;
+    cursor: pointer;
+    &:hover {
+      color: #00a8ff;
+    }
   }
 }

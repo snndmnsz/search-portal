@@ -5,17 +5,26 @@ import Button from "../../components/ui/button/Button";
 import DropDown from "../../components/ui/dropDown/DropDown";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getSearchItems } from "../../api/searchApi";
+import { getSearchItems, getQuerySearchItems } from "../../api/searchApi";
 import { setData, clearData } from "../../redux/slice";
 function SearchResults() {
   const { searchValue } = useParams();
   const dispatch = useDispatch();
   const [data, setData] = useState([]);
 
+  const { currentPage, dataPerPage } = useSelector(
+    (state) => state.searchApi.pagination
+  );
+
   useEffect(() => {
     dispatch(clearData());
-    getSearchItems(searchValue).then((res) => {
-      dispatch(setData(res));
+    // getSearchItems(searchValue).then((res) => {
+    //   dispatch(setData(res));
+    // });
+
+    getQuerySearchItems(searchValue, currentPage, dataPerPage).then((res) => {
+      console.log(res.pagination);
+      dispatch(setData(res.data));
     });
   }, [searchValue]);
 

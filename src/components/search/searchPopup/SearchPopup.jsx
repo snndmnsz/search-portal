@@ -1,11 +1,12 @@
 import React from "react";
 import styles from "./SearchPopup.module.scss";
 import SearchItem from "../searchItem/SearchItem";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-
+import Button from "../../ui/button/Button";
 function SearchPopup({ searchValue }) {
   const suggestedData = useSelector((state) => state.searchApi.suggestions);
+  const navigate = useNavigate();
   let slicedItems;
   if (suggestedData.length >= 3) {
     slicedItems = suggestedData.slice(0, 3);
@@ -15,6 +16,11 @@ function SearchPopup({ searchValue }) {
     return null;
   }
 
+  const showMoreHandler = (e) => {
+    e.stopPropagation();
+    navigate("/search/" + searchValue);
+  };
+
   return (
     <div className={styles.popupContainer}>
       <div className={styles.items}>
@@ -22,9 +28,11 @@ function SearchPopup({ searchValue }) {
           <SearchItem key={item.id} {...item} />
         ))}
       </div>
-      <Link className={styles.showMore} to={`/search/${searchValue}`}>
-        Show more...
-      </Link>
+      <Button
+        onClick={showMoreHandler}
+        className={styles.showMoreButton}
+        title="Show more..."
+      />
     </div>
   );
 }

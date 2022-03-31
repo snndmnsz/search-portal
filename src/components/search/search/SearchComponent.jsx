@@ -17,9 +17,9 @@ import {
 function SearchComponent() {
   const [searchValue, setSearchValue] = useState("");
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [onBlur, setOnBlur] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
 
   const searchHandler = (e) => {
     setSearchValue(e.target.value);
@@ -32,19 +32,21 @@ function SearchComponent() {
     dispatch(clearSuggestions());
   }
 
-  const inputFocusHandler = (e) => {
+  const inputFocusHandler = () => {
     setIsPopupOpen(true);
   };
 
-  const inputBlurHandler = (e) => {
-    setIsPopupOpen(false);
+  const inputBlurHandler = () => {
+    // setIsPopupOpen(false);
   };
 
   const searchClickHandler = (e) => {
     e.preventDefault();
-    setIsPopupOpen(false);
-    if (searchValue.length > 0) {
-      navigate("/search/" + searchValue);
+    if (!onBlur) {
+      setIsPopupOpen(false);
+      if (searchValue.length > 0) {
+        navigate("/search/" + searchValue);
+      }
     }
   };
 
