@@ -44,8 +44,9 @@ function SearchComponent() {
   };
 
   const inputBlurHandler = () => {
-    //TODO: FIX THIS PART
-    setIsPopupOpen(false);
+    setTimeout(() => {
+      setIsPopupOpen(false);
+    }, 100);
   };
 
   const searchClickHandler = (e) => {

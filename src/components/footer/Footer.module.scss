@@ -1,73 +1,78 @@
-.footerContainer {
-  height: 277px;
-  padding: 30px 40px;
+.footer {
+  height: 300px;
+  width: 100%;
   background-color: rgba(41, 78, 152, 0.72);
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-
-  @media (max-width: 700px) {
-    flex-direction: column;
-    height: 400px;
-  }
-
-  .footerItems {
-    height: 100%;
+  .footerContainer {
+    padding: 30px 40px;
+    margin: 0 auto;
+    max-width: 1300px;
     display: flex;
-    gap: 15px;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 
-    .footerImage {
-      height: 80%;
-      & img {
-        height: 100%;
-        width: auto;
-        object-fit: cover;
-      }
-    }
-
-    .footerInfo {
-      height: 100%;
-      max-width: 350px;
-      display: flex;
+    @media (max-width: 700px) {
       flex-direction: column;
-      gap: 8px;
+      height: 400px;
+    }
+
+    .footerItems {
+      height: 100%;
+      display: flex;
+      gap: 15px;
+      flex-direction: row;
       justify-content: center;
-      align-items: flex-start;
-      text-align: left;
-      color: #fff;
-      font-weight: 400;
-      font-size: 18px;
+      align-items: center;
 
-      .title {
-        font-weight: 700;
-        font-size: 19px;
-      }
-      .email {
-        margin-top: 20px;
-        & a {
-          color: #fff;
-          text-decoration: none;
-        }
-
-        & a:hover {
-          text-decoration: underline;
+      .footerImage {
+        height: 80%;
+        & img {
+          height: 100%;
+          width: auto;
+          object-fit: cover;
         }
       }
-      .address {
-        font-weight: 300;
+
+      .footerInfo {
+        height: 100%;
+        max-width: 350px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        justify-content: center;
+        align-items: flex-start;
+        text-align: left;
+        color: #fff;
+        font-weight: 400;
+        font-size: 18px;
+
+        .title {
+          font-weight: 700;
+          font-size: 19px;
+        }
+        .email {
+          margin-top: 20px;
+          & a {
+            color: #fff;
+            text-decoration: none;
+          }
+
+          & a:hover {
+            text-decoration: underline;
+          }
+        }
+        .address {
+          font-weight: 300;
+        }
       }
     }
-  }
-  .map {
-    width: 467px;
-    height: 222px;
-    .googleMap {
+    .map {
       width: 467px;
       height: 222px;
+      .googleMap {
+        width: 467px;
+        height: 222px;
+      }
     }
   }
 }

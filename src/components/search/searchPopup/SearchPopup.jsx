@@ -18,7 +18,8 @@ function SearchPopup({ searchValue }) {
 
   const showMoreHandler = (e) => {
     e.stopPropagation();
-    navigate("/search/" + searchValue);
+    e.preventDefault();
+    navigate("/search/" + searchValue + "?page=1");
   };
 
   return (
