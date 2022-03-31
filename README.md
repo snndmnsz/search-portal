@@ -1,6 +1,6 @@
 # Created with React
 
-## LIVE PREVIEW : https://search-engine-opal.vercel.app/
+## LIVE PREVIEW : https://search-portal-snndmnsz.vercel.app/
 
 ## Objective
 The objective is to create a search engine application for business requirements. 
