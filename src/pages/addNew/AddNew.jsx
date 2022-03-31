@@ -113,16 +113,9 @@ function AddNew() {
         });
       }, 1500);
     } else {
-      const event = new Date();
       const data = {
         id: Math.floor(Math.random() * 1000000).toString(),
-        date:
-          event.getMonth() +
-          1 +
-          "/" +
-          event.getDate() +
-          "/" +
-          event.getFullYear(),
+        date: new Date(),
         fullName: inputs.name.value,
         country: inputs.country.value,
         company: inputs.company.value,

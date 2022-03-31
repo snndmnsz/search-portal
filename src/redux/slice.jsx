@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initial = {
   data: [],
   suggestions: [],
+  sort: "",
 };
 
 const slice = createSlice({
@@ -21,9 +22,21 @@ const slice = createSlice({
     clearSuggestions(state, action) {
       state.suggestions = [];
     },
+    setSort(state, action) {
+      state.sort = action.payload;
+    },
+    clearSort(state, action) {
+      state.sort = "";
+    },
   },
 });
 
-export const { setData, clearData, setSuggestions, clearSuggestions } =
-  slice.actions;
+export const {
+  setData,
+  clearData,
+  setSuggestions,
+  clearSuggestions,
+  setSort,
+  clearSort,
+} = slice.actions;
 export default slice.reducer;

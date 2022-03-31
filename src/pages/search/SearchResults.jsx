@@ -14,6 +14,7 @@ function SearchResults() {
   const [data, setData] = useState([]);
   const location = useLocation();
   const navigate = useNavigate();
+  const sort = useSelector((state) => state.searchApi.sort);
   let params = new URLSearchParams(location.search);
   const [pagination, setPagination] = useState({
     currentPage: params.get("page") ? +params.get("page") : 1,
@@ -27,7 +28,8 @@ function SearchResults() {
     getQuerySearchItems(
       searchValue,
       pagination.currentPage,
-      pagination.dataPerPage
+      pagination.dataPerPage,
+      sort
     ).then((res) => {
       const { currentPage, dataPerPage, totalPages } = res.pagination;
       setPagination({
@@ -37,7 +39,7 @@ function SearchResults() {
       });
       setData(res.data);
     });
-  }, [searchValue]);
+  }, [searchValue, sort]);
 
   const changePage = (page) => {
     getQuerySearchItems(searchValue, page, pagination.dataPerPage).then(
@@ -50,7 +52,8 @@ function SearchResults() {
 
   const renderPagination = (totalbutton) => {
     const buttons = [];
-    for (let i = 1; i <= totalbutton; i++) {
+    let totalbuttons = totalbutton < 6 ? totalbutton : 6;
+    for (let i = 1; i <= totalbuttons; i++) {
       buttons.push(
         <Button
           key={i}
@@ -87,10 +90,7 @@ function SearchResults() {
       <div className={styles.tableContainer}>
         <div className={styles.tableItems}>
           {data.map((item) => (
-            <>
-              <SearchItem key={item.id} {...item} showPersonInfo={true} />
-              <hr />
-            </>
+            <SearchItem key={item.id} {...item} showPersonInfo={true} />
           ))}
         </div>
         <div className={styles.tablePagination}>
@@ -109,6 +109,7 @@ function SearchResults() {
             disabled={+pagination.currentPage === 1}
           />
           {renderPagination(pagination.totalPages)}
+          {pagination.totalPages > 6 && "..."}
           <Button
             title="Next"
             onClick={() => {

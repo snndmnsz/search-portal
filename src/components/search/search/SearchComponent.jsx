@@ -18,7 +18,9 @@ function SearchComponent() {
   const location = useLocation();
   const pathValue = location?.pathname?.split("/")[2];
 
-  const [searchValue, setSearchValue] = useState(pathValue ? pathValue : "");
+  const [searchValue, setSearchValue] = useState(
+    pathValue ? pathValue.replace(/%20/g, " ") : ""
+  );
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [onBlur, setOnBlur] = useState(false);
   const dispatch = useDispatch();
@@ -26,9 +28,12 @@ function SearchComponent() {
 
   const searchHandler = (e) => {
     setSearchValue(e.target.value);
-    getSearchItems(e.target.value).then((res) => {
-      dispatch(setSuggestions(res));
-    });
+    console.log(e.target.value);
+    if (e.target.value.length > 1) {
+      getSearchItems(searchValue.trim()).then((res) => {
+        dispatch(setSuggestions(res));
+      });
+    }
   };
 
   if (searchValue.length === 0) {
@@ -48,8 +53,8 @@ function SearchComponent() {
     e.preventDefault();
     if (!onBlur) {
       setIsPopupOpen(false);
-      if (searchValue.length > 0) {
-        navigate("/search/" + searchValue + "?page=1");
+      if (searchValue.length > 1) {
+        navigate("/search/" + searchValue.trim() + "?page=1");
       }
     }
   };

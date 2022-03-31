@@ -4,12 +4,13 @@ export const convertToJson = () => {
   const FullData = [];
   for (const items in data.data) {
     const id = items;
+    const date = data.data[items][3].split("/");
     const dataObject = {
       id: id,
       fullName: data.data[items][0],
       company: data.data[items][1],
       email: data.data[items][2],
-      date: data.data[items][3],
+      date: new Date(date[2], date[1] - 1, date[0]),
       country: data.data[items][4],
       city: data.data[items][5],
     };

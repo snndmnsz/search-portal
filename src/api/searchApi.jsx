@@ -6,11 +6,16 @@ export const getSearchItems = (word) => {
       const data = JSON.parse(localStorage.getItem("TESODEVdata"));
       const result = isContainsTheWord(word, data);
       resolve(result);
-    }, 300);
+    }, 200);
   });
 };
 
-export const getQuerySearchItems = (word, currentPage, dataPerPage) => {
+export const getQuerySearchItems = (
+  word,
+  currentPage,
+  dataPerPage,
+  orderBy
+) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       const data = JSON.parse(localStorage.getItem("TESODEVdata"));
@@ -20,6 +25,32 @@ export const getQuerySearchItems = (word, currentPage, dataPerPage) => {
         totalPages: Math.ceil(result.length / dataPerPage),
         dataPerPage: dataPerPage,
       };
+      if (orderBy === "Name ascending") {
+        result.sort((a, b) => {
+          if (a.fullName < b.fullName) return -1;
+          if (a.fullName > b.fullName) return 1;
+          return 0;
+        });
+      } else if (orderBy === "Name descending") {
+        result.sort((a, b) => {
+          if (a.fullName > b.fullName) return -1;
+          if (a.fullName < b.fullName) return 1;
+          return 0;
+        });
+      } else if (orderBy === "Year ascending") {
+        result.sort((a, b) => {
+          if (a.date < b.date) return -1;
+          if (a.date > b.date) return 1;
+          return 0;
+        });
+      } else if (orderBy === "Year descending") {
+        result.sort((a, b) => {
+          if (a.date > b.date) return -1;
+          if (a.date < b.date) return 1;
+          return 0;
+        });
+      }
+
       resolve({
         data: result.slice(
           (currentPage - 1) * dataPerPage,
@@ -27,7 +58,7 @@ export const getQuerySearchItems = (word, currentPage, dataPerPage) => {
         ),
         pagination: pagination,
       });
-    }, 300);
+    }, 200);
   });
 };
 
@@ -43,6 +74,6 @@ export const addNewElement = (newElement) => {
         message: "New element added",
         data: data,
       });
-    }, 300);
+    }, 200);
   });
 };
