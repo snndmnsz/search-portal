@@ -69,25 +69,33 @@ function Slider() {
         forwardBtnProps={{
           children: ">",
           style: {
-            fontSize: "20px",
-            padding: "10px",
-            width: "40px",
+            fontSize: "18px",
+            padding: "15px",
+            width: "40px !important",
+            height: "40px !important",
             borderRadius: "50%",
             border: "none",
             alignSelf: "center",
             cursor: "pointer",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
           },
         }}
         backwardBtnProps={{
           children: "<",
           style: {
-            fontSize: "20px",
-            padding: "10px",
-            width: "40px",
+            fontSize: "18px",
+            padding: "15px",
+            width: "40px !important",
+            height: "40px !important",
             borderRadius: "50%",
             border: "none",
             alignSelf: "center",
             cursor: "pointer",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
           },
         }}
         itemsToShow={3}
