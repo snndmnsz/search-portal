@@ -52,6 +52,7 @@ function SearchResults() {
             "Year ascending",
             "Year descending",
           ]}
+          defaultItem="Name ascending"
         />
       </div>
       <div className={styles.tableContainer}>

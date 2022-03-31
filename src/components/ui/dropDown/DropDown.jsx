@@ -2,11 +2,10 @@ import React from "react";
 import { useState } from "react";
 import styles from "./DropDown.module.scss";
 import Sort from "../../../assets/icons/Sort";
-function DropDown({ items }) {
+function DropDown({ items, defaultItem }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedItem, setSelectedItem] = useState("");
-
-  console.log(selectedItem);
+  const [selectedItem, setSelectedItem] = useState(defaultItem);
+  const [buttonTitle, setButtonTitle] = useState("Order By");
 
   return (
     <div className={styles.container}>
@@ -17,7 +16,7 @@ function DropDown({ items }) {
         className={styles.button}
       >
         <Sort />
-        Order By
+        {buttonTitle}
       </button>
 
       {isOpen && (
@@ -26,6 +25,7 @@ function DropDown({ items }) {
             <div
               onClick={() => {
                 setSelectedItem(item);
+                setButtonTitle(item);
                 setIsOpen(false);
               }}
               key={item}
