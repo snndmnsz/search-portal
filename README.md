@@ -1,4 +1,4 @@
-#Created with React
+# Created with React
 
 ## Objective
 The objective is to create a search engine application for business requirements. 
