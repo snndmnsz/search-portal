@@ -2,39 +2,27 @@ import React from "react";
 import styles from "./SearchPopup.module.scss";
 import SearchItem from "../searchItem/SearchItem";
 import { Link } from "react-router-dom";
-const DUMMY_DATA = [
-  {
-    id: 1,
-    address: "18th Street Brewery",
-    place: "Oakley Avenue, Hammond, IN",
-    person: "John Doe",
-    date: "12/12/2020",
-  },
-  {
-    id: 2,
-    address: "18th Street Brewery",
-    place: "Oakley Avenue, Hammond, IN",
-    person: "John Doe",
-    date: "12/12/2020",
-  },
-  {
-    id: 3,
-    address: "18th Street Brewery",
-    place: "Oakley Avenue, Hammond, IN",
-    person: "John Doe",
-    date: "12/12/2020",
-  },
-];
+import { useSelector } from "react-redux";
 
-function SearchPopup() {
+function SearchPopup({ searchValue }) {
+  const suggestedData = useSelector((state) => state.searchApi.suggestions);
+  let slicedItems;
+  if (suggestedData.length >= 3) {
+    slicedItems = suggestedData.slice(0, 3);
+  } else if (suggestedData.length > 0 && suggestedData.length < 3) {
+    slicedItems = suggestedData;
+  } else {
+    return null;
+  }
+
   return (
     <div className={styles.popupContainer}>
       <div className={styles.items}>
-        {DUMMY_DATA.map((item) => (
+        {slicedItems.map((item) => (
           <SearchItem key={item.id} {...item} />
         ))}
       </div>
-      <Link className={styles.showMore} to="/search-results/asd">
+      <Link className={styles.showMore} to={`/search/${searchValue}`}>
         Show more...
       </Link>
     </div>

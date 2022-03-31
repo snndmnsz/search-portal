@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-
 import { readAllSearch } from "./api/searchApi";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
@@ -10,14 +9,6 @@ import AddNew from "./pages/addNew/AddNew";
 import "./App.scss";
 
 function App() {
-  const [search, setSearch] = useState([]);
-
-  useEffect(() => {
-    readAllSearch().then((search) => {
-      setSearch(search);
-    });
-  }, []);
-
   return (
     <>
       {/* <div className="owner">Coded by snndmnsz</div> */}
@@ -25,7 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
-          path="search-results/:word"
+          path="search/:searchValue"
           element={<SearchResults />}
           exact={true}
         />

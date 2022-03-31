@@ -7,6 +7,7 @@ import SearchComponent from "../../components/search/search/SearchComponent";
 import Slider from "../../components/ui/slider/Slider";
 import logo from "../../assets/images/logo.png";
 
+
 function Home() {
   return (
     <div className={styles.container}>

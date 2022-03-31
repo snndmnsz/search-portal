@@ -12,5 +12,10 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      margin: 20px 0px;
+    }
   }
 }

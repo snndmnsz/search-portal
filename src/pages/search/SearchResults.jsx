@@ -1,47 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./SearchResults.module.scss";
 import SearchItem from "../../components/search/searchItem/SearchItem";
 import Button from "../../components/ui/button/Button";
 import DropDown from "../../components/ui/dropDown/DropDown";
-const DUMMY_DATA = [
-  {
-    id: 1,
-    address: "18th Street Brewery",
-    place: "Oakley Avenue, Hammond, IN",
-    person: "John Doe",
-    date: "12/12/2020",
-  },
-  {
-    id: 2,
-    address: "18th Street Brewery",
-    place: "Oakley Avenue, Hammond, IN",
-    person: "John Doe",
-    date: "12/12/2020",
-  },
-  {
-    id: 3,
-    address: "18th Street Brewery",
-    place: "Oakley Avenue, Hammond, IN",
-    person: "John Doe",
-    date: "12/12/2020",
-  },
-  {
-    id: 4,
-    address: "18th Street Brewery",
-    place: "Oakley Avenue, Hammond, IN",
-    person: "John Doe",
-    date: "12/12/2020",
-  },
-  {
-    id: 5,
-    address: "18th Street Brewery",
-    place: "Oakley Avenue, Hammond, IN",
-    person: "John Doe",
-    date: "12/12/2020",
-  },
-];
-
+import { useSelector, useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
+import { getSearchItems } from "../../api/searchApi";
+import { setData, clearData } from "../../redux/slice";
 function SearchResults() {
+  const { searchValue } = useParams();
+  const dispatch = useDispatch();
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    dispatch(clearData());
+    getSearchItems(searchValue).then((res) => {
+      dispatch(setData(res));
+    });
+  }, [searchValue]);
+
   return (
     <div className={styles.container}>
       <div className={styles.sort}>
@@ -57,7 +34,7 @@ function SearchResults() {
       </div>
       <div className={styles.tableContainer}>
         <div className={styles.tableItems}>
-          {DUMMY_DATA.map((item) => (
+          {data.map((item) => (
             <SearchItem key={item.id} {...item} showPersonInfo={true} />
           ))}
         </div>
