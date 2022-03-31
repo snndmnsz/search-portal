@@ -4,7 +4,7 @@ import Button from "../../ui/button/Button";
 import SearchInput from "../../ui/searchInput/SearchInput";
 import styles from "./Search.module.scss";
 import SearchPopup from "../searchPopup/SearchPopup";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { getSearchItems } from "../../../api/searchApi";
 import { useDispatch } from "react-redux";
 import {
@@ -15,7 +15,10 @@ import {
 } from "../../../redux/slice";
 
 function SearchComponent() {
-  const [searchValue, setSearchValue] = useState("");
+  const location = useLocation();
+  const pathValue = location?.pathname?.split("/")[2];
+
+  const [searchValue, setSearchValue] = useState(pathValue ? pathValue : "");
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [onBlur, setOnBlur] = useState(false);
   const dispatch = useDispatch();
