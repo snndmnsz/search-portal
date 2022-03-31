@@ -7,8 +7,15 @@ import Home from "./pages/home/Home";
 import SearchResults from "./pages/search/SearchResults";
 import AddNew from "./pages/addNew/AddNew";
 import "./App.scss";
+import { convertToJson } from "./utils/utils";
 
 function App() {
+  useEffect(() => {
+    if (localStorage.getItem("TESODEVdata") === null) {
+      convertToJson();
+    }
+  }, []);
+
   return (
     <>
       {/* <div className="owner">Coded by snndmnsz</div> */}

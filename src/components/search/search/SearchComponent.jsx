@@ -37,7 +37,8 @@ function SearchComponent() {
   };
 
   const inputBlurHandler = () => {
-    // setIsPopupOpen(false);
+    //TODO: FIX THIS PART
+    setIsPopupOpen(false);
   };
 
   const searchClickHandler = (e) => {
@@ -45,7 +46,7 @@ function SearchComponent() {
     if (!onBlur) {
       setIsPopupOpen(false);
       if (searchValue.length > 0) {
-        navigate("/search/" + searchValue);
+        navigate("/search/" + searchValue + "?page=1");
       }
     }
   };
