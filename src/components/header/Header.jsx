@@ -34,7 +34,7 @@ function Header() {
         <Link to="/new-search-record">
           <Button
             title="Add new record"
-            onClick={() => console.log("cliked")}
+            onClick={() => {}}
           />
         </Link>
       )}

@@ -25,7 +25,8 @@
   .slider {
     max-width: 88%;
     display: flex;
-    overflow: hidden;
+    overflow-x: scroll;
+    overflow-y: hidden;
     flex-direction: row;
     justify-content: center;
     align-items: center;

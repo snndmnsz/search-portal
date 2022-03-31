@@ -28,7 +28,6 @@ function SearchComponent() {
 
   const searchHandler = (e) => {
     setSearchValue(e.target.value);
-    console.log(e.target.value);
     if (e.target.value.length > 1) {
       getSearchItems(searchValue.trim()).then((res) => {
         dispatch(setSuggestions(res));
