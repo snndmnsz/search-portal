@@ -3,7 +3,7 @@ import styles from "./SearchInput.module.scss";
 
 import Search from "../../../assets/icons/Search.jsx";
 
-function SearchInput({ placeholder, onChange, value, onFocus,onBlur }) {
+function SearchInput({ placeholder, onChange, value, onFocus,onBlur, ...props }) {
   return (
     <div className={styles.inputContainer}>
       <Search />
@@ -15,6 +15,7 @@ function SearchInput({ placeholder, onChange, value, onFocus,onBlur }) {
         placeholder={placeholder}
         onFocus={onFocus}
         onBlur={onBlur}
+        {...props}
       />
     </div>
   );

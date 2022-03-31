@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Input.module.scss";
 
-function Input({ label, value, onChange, type, placeholder, error }) {
+function Input({ label, value, onChange, type, placeholder, error, ...props }) {
   return (
     <div className={styles.inputContainer}>
       <label className={error ? styles.errorText : styles.label}>{label}</label>
@@ -10,6 +10,7 @@ function Input({ label, value, onChange, type, placeholder, error }) {
         onChange={onChange}
         type={type ? type : "text"}
         placeholder={placeholder}
+        {...props}
         className={
           error ? [styles.input, styles.error].join(" ") : styles.input
         }
