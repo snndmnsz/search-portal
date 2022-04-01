@@ -15,8 +15,8 @@ export const convertToJson = () => {
       city: data.data[items][5],
     };
     FullData.push(dataObject);
-    localStorage.setItem("TESODEVdata", JSON.stringify(FullData));
   }
+  localStorage.setItem("TESODEVdata", JSON.stringify(FullData));
 };
 
 export const isContainsTheWord = (word, data) => {
